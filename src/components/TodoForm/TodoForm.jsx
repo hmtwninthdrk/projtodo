@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { v4 as uuidv4 } from "uuid"
 import s from "./TodoForm.module.css";
 
 const TodoForm = ({ todo, setTodo }) => {
@@ -10,7 +11,7 @@ const TodoForm = ({ todo, setTodo }) => {
       setTodo([
         ...todo,
         {
-          id: 5,
+          id: uuidv4(),
           name: value,
           status: true,
           type: opt,
@@ -28,7 +29,7 @@ const TodoForm = ({ todo, setTodo }) => {
         <option value="">Option</option>
         <option value={"work"}>Work</option>
         <option value={"hobby"}>Hobby</option>
-        <option value={"study"}>Etc</option>
+        <option value={"study"}>Study</option>
       </select>
       <label>Name</label>
       <input

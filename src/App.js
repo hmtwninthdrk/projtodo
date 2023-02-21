@@ -30,18 +30,19 @@ function App() {
     id:2,
     status: true,
     name: "Second list",
-    type: "work"
+    type: "hobby"
   },
   {
     id:3,
     status: true,
     name: "Third list",
-    type: "work"
+    type: "study"
   },])
 
   const [time, setTime] = useState("00:00:00")
   
   return (
+<<<<<<< HEAD
     <BrowserRouter>
       <Routes>
       <Route path="/" element={<Main
@@ -50,6 +51,23 @@ function App() {
         <Route path='/signIn' element={<SignIn setIsAuth={setIsAuth}/>}/>
       </Routes>
     </BrowserRouter>
+=======
+    <div className='container'>
+        <Header/>
+        <section className='main'>
+          <div className='left_side'>
+          <TodoForm todo={todo} setTodo={setTodo}/>
+        
+          </div>
+          <Block2 todo={todo} setTodo={setTodo}/>
+          <div className='right_side'>
+           
+          </div>
+        </section>
+        <Clock/>
+    </div>
+      
+>>>>>>> 33e002b72d5202f85e431e2976709c87a7ebc4d6
     
   );
 }
