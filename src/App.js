@@ -25,7 +25,12 @@ function App() {
     name: "Third list",
     type: "study"
   },])
-  
+
+  const [time, setTime] = useState("00:00:00")
+  const updateTime = (cometime) =>{
+    setTime(cometime);
+    console.log(time)
+  }
   return (
     <div className='container'>
         <Header/>
@@ -39,7 +44,7 @@ function App() {
            
           </div>
         </section>
-        
+        <Clock/>
     </div>
       
     
