@@ -17,13 +17,13 @@ function App() {
     id:2,
     status: true,
     name: "Second list",
-    type: "work"
+    type: "hobby"
   },
   {
     id:3,
     status: true,
     name: "Third list",
-    type: "work"
+    type: "study"
   },])
   
   return (
@@ -39,7 +39,7 @@ function App() {
            
           </div>
         </section>
-        <Clock/>
+        
     </div>
       
     
