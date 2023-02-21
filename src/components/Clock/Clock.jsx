@@ -2,29 +2,64 @@ import React, { useState } from "react";
 import s from "./Clock.module.css";
 const Clock = (props) => {
   const [opt, setOpt] = useState();
-
+  const [disabled, setDisabled] = useState(false);
   const clockCycle = (dayTime) => {
     console.log("inClockCycle");
-    let hr = parseInt(dayTime.slice(0, 2));
-    console.log(props.time);
+    let hr = parseInt(dayTime.substr(0, 2));
+    let mn = parseInt(dayTime.substr(3, 2));
+    let sc = parseInt(dayTime.substr(6, 2));
+    // if (hr > 0) {
+    //   if (sc === 0) {
+    //     mn--;
+    //     sc = 59;
+    //   }
+    //   if (mn === 0) {
+    //     hr--;
+    //     sc = 59;
+    //     mn = 59;
+    //   }
 
-    let mn = parseInt(dayTime.slice(3, 2));
-    let sc = parseInt(dayTime.slice(6, 2));
-    if (hr > 0) {
-      console.log(hr);
-      if (mn == -1) {
-        mn = 59;
-        hr = hr - 1;
-      }
-      if (sc == 60) {
-        mn = mn - 1;
-        sc = 0;
-      }
-      sc++;
-      let time = hr + ":" + mn + ":" + sc;
+    //   sc--;
+    //   let time = hr + ":" + mn + ":" + sc;
+    //   props.setTime(time);
+    //   if (!disabled) setTimeout(clockCycle, 1000, time);
+    let timerId = setInterval(() => {
+      if (hr > 0) {
+        // if (mn == -1) {
+        //   mn = 59;
+        //   hr = hr - 1;
+        // }
+        // if (sc == 60) {
+        //   mn = mn - 1;
+        //   sc = 0;
+        // }
+        if (sc === 0) {
+          mn--;
+          sc = 59;
+        }
+        if (mn === 0) {
+          hr--;
+          sc = 59;
+          mn = 59;
+        }
+        sc--;
+        let time = hr + ":" + mn + ":" + sc;
 
-      props.setTime(time);
-      console.log(props.time);
+        props.setTime(time);
+      }
+    }, 1000);
+  };
+
+  const toggleForm = () => {
+    if (!disabled) {
+      console.log("hi");
+      setDisabled(true);
+      console.log("Disabled change", disabled);
+    }
+    if (disabled) {
+      setDisabled(false);
+      props.setTime("00:00:00");
+      console.log("Disabled change", disabled);
     }
   };
   const setTimeFromOpt = () => {
@@ -60,6 +95,7 @@ const Clock = (props) => {
         props.setTime(dayTime);
         break;
     }
+    toggleForm();
     clockCycle(dayTime);
   };
 
@@ -68,16 +104,19 @@ const Clock = (props) => {
       <div className={s.circle}>
         <div className={s.time}>{props.time}</div>
       </div>
-      <select onChange={(e) => setOpt(e.target.value)}>
-        <option value="1 Day">1 Day</option>
-        <option value="2 Day">2 Day</option>
-        <option value="3 Day">3 Day</option>
-        <option value="4 Day">4 Day</option>
-        <option value="5 Day">5 Day</option>
-        <option value="6 Day">6 Day</option>
-        <option value="7 Day">7 Day</option>
-      </select>
-      <button onClick={setTimeFromOpt}>Go!</button>
+      <form className={`${s.form} ${disabled ? `${s.hide}` : ""}`} action="#">
+        <select onChange={(e) => setOpt(e.target.value)}>
+          <option value="1 Day">1 Day</option>
+          <option value="2 Day">2 Day</option>
+          <option value="3 Day">3 Day</option>
+          <option value="4 Day">4 Day</option>
+          <option value="5 Day">5 Day</option>
+          <option value="6 Day">6 Day</option>
+          <option value="7 Day">7 Day</option>
+        </select>
+        <button onClick={setTimeFromOpt}>Go!</button>
+      </form>
+      <form action="" className={disabled ? `${s.hide}` : ""}></form>
     </div>
   );
 };

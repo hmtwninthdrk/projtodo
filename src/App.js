@@ -1,12 +1,25 @@
 import './App.css';
-import Header from './components/TodoHeader/Header';
-import { useState } from 'react';
-import TodoForm from './components/TodoForm/TodoForm';
 
-import Block2 from './components/Block2/block2';
-import Clock from './components/Clock/Clock';
+import { useState, useEffect } from 'react';
+
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+
+import SignUp from './components/SignUp/SignUp';
+import SignIn from './components/SignIn/SignIn';
+import Main from './components/Main/Main';
 
 function App() {
+  const [isAuth, setIsAuth] = useState(false)
+    const logInfo = JSON.parse(localStorage.getItem("logInfo")) || []
+
+    useEffect(() => {
+        logInfo.users.forEach((user) => {
+            if (user.isAuth) {
+                setIsAuth(true)
+            }
+        })
+    }, [])
+
   const [todo,setTodo] = useState([{
     id:1,
     status: true,
@@ -27,26 +40,16 @@ function App() {
   },])
 
   const [time, setTime] = useState("00:00:00")
-  const updateTime = (cometime) =>{
-    setTime(cometime);
-    console.log(time)
-  }
+  
   return (
-    <div className='container'>
-        <Header/>
-        <section className='main'>
-          <div className='left_side'>
-          <TodoForm todo={todo} setTodo={setTodo}/>
-        
-          </div>
-          <Block2 todo={todo} setTodo={setTodo}/>
-          <div className='right_side'>
-           
-          </div>
-        </section>
-        <Clock time={time} setTime = {setTime} />
-    </div>
-      
+    <BrowserRouter>
+      <Routes>
+      <Route path="/" element={<Main
+      todo={todo} setTodo={setTodo}/>}/>
+        <Route path='/signUp' element={<SignUp/>}/>
+        <Route path='/signIn' element={<SignIn setIsAuth={setIsAuth}/>}/>
+      </Routes>
+    </BrowserRouter>
     
   );
 }
