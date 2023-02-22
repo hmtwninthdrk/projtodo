@@ -30,7 +30,7 @@ function SignIn({ setIsAuth }) {
     if (logInfo) {
       if (checkUser(logInfo.users, login, password)) {
         alert("Welcome " + login);
-        Navig("/");
+        Navig("/main");
       } else alert("Incorrect password or User does not exist");
     } else {
       alert("Incorrect password or User does not exist");

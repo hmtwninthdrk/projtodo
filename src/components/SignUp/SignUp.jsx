@@ -22,7 +22,7 @@ const SignUp = () => {
       if (logInfo) {
         if (checkUser(logInfo.users, login, password)) {
           alert("User Exist!!");
-          Navig("/signIn");
+          Navig("/");
         } else {
           logInfo.users.push({
             login: login,
@@ -30,7 +30,7 @@ const SignUp = () => {
             isAuth: false,
           });
           localStorage.setItem("logInfo", JSON.stringify(logInfo));
-          Navig("/signIn");
+          Navig("/");
         }
       } else {
         localStorage.setItem(
@@ -39,7 +39,7 @@ const SignUp = () => {
             users: [{ login: login, password: password, isAuth: false }],
           })
         );
-        Navig("/sign-in");
+        Navig("/");
       }
     } else {
       alert("Login or password is empty");

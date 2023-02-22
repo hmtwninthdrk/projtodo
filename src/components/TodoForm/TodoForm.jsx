@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { v4 as uuidv4 } from "uuid"
+import { v4 as uuidv4 } from "uuid";
 import s from "./TodoForm.module.css";
 
 const TodoForm = ({ todo, setTodo }) => {
@@ -17,6 +17,7 @@ const TodoForm = ({ todo, setTodo }) => {
           type: opt,
         },
       ]);
+      setValue("");
     }
   }
   const handleKeyUp = (e) => {
@@ -25,8 +26,10 @@ const TodoForm = ({ todo, setTodo }) => {
 
   return (
     <div className={s.form}>
-      <select onChange={(e) => setOpt(e.target.value)}>
-        <option value="">Option</option>
+      <select defaultValue={"DEFAULT"} onChange={(e) => setOpt(e.target.value)}>
+        <option value="DEFAULT" disabled>
+          Option
+        </option>
         <option value={"work"}>Work</option>
         <option value={"hobby"}>Hobby</option>
         <option value={"study"}>Study</option>
