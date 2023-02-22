@@ -1,0 +1,33 @@
+.head{
+    background-image: url("../../icons/Bitmap.png");
+    height: 300px;
+    background-size: 100%;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.textHead {
+    display: flex;
+    justify-content: space-between;
+    width: 540px;
+
+}
+
+.textHead p {
+    font-family: 'Josefin Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 40px;
+    /* identical to box height */
+
+    letter-spacing: 15px;
+
+    color: #FFFFFF;
+}
+.textHead img {
+    width:25.11px;
+    height:26px;
+}

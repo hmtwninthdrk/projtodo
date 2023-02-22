@@ -44,21 +44,14 @@ function App() {
     name: "Third list",
     type: "study"
   },])
-  const [doneList, setDoneList] = useState([
-    {
-      id: 4,
-      status: true,
-      name: "Done1",
-      type: "work",
-    },
-  ]);
+  
   const [time, setTime] = useState("00:00:00")
   
   return (
     <BrowserRouter>
       <Routes>
       <Route path="/main" element={<Main
-      todo={todo} setTodo={setTodo} doneList={doneList} setDoneList={setDoneList}/>}/>
+      todo={todo} setTodo={setTodo}/>}/>
         <Route path='/signUp' element={<SignUp/>}/>
         <Route path='/' element={<SignIn setIsAuth={setIsAuth}/>}/>
       </Routes>

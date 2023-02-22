@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import s from "./Clock.module.css";
+import startTime from "../icons/startTime.png";
 const Clock = (props) => {
   const [opt, setOpt] = useState();
   const [disabled, setDisabled] = useState(false);
   const clockCycle = (dayTime) => {
     console.log("inClockCycle");
+
     let hr = parseInt(dayTime.substr(0, 2));
     let mn = parseInt(dayTime.substr(3, 2));
     let sc = parseInt(dayTime.substr(6, 2));
@@ -51,15 +53,17 @@ const Clock = (props) => {
   };
 
   const toggleForm = () => {
-    if (!disabled) {
-      console.log("hi");
-      setDisabled(true);
-      console.log("Disabled change", disabled);
-    }
-    if (disabled) {
-      setDisabled(false);
-      props.setTime("00:00:00");
-      console.log("Disabled change", disabled);
+    if (opt != null) {
+      if (!disabled) {
+        console.log("hi");
+        setDisabled(true);
+        console.log("Disabled change", disabled);
+      }
+      if (disabled) {
+        setDisabled(false);
+        props.setTime("00:00:00");
+        console.log("Disabled change", disabled);
+      }
     }
   };
   const setTimeFromOpt = () => {
@@ -103,19 +107,28 @@ const Clock = (props) => {
     <div className={s.clockComponent}>
       <div className={s.circle}>
         <div className={s.time}>{props.time}</div>
+        <form className={`${s.form} ${disabled ? `${s.hide}` : ""}`} action="#">
+          <select
+            defaultValue={"DEFAULT"}
+            onChange={(e) => setOpt(e.target.value)}
+          >
+            <option value="DEFAULT" disabled>
+              Days
+            </option>
+            <option value="1 Day">1 Day</option>
+            <option value="2 Day">2 Day</option>
+            <option value="3 Day">3 Day</option>
+            <option value="4 Day">4 Day</option>
+            <option value="5 Day">5 Day</option>
+            <option value="6 Day">6 Day</option>
+            <option value="7 Day">7 Day</option>
+          </select>
+          <div className={s.startTime} onClick={setTimeFromOpt}>
+            <img src={startTime} alt="" />
+          </div>
+        </form>
       </div>
-      <form className={`${s.form} ${disabled ? `${s.hide}` : ""}`} action="#">
-        <select onChange={(e) => setOpt(e.target.value)}>
-          <option value="1 Day">1 Day</option>
-          <option value="2 Day">2 Day</option>
-          <option value="3 Day">3 Day</option>
-          <option value="4 Day">4 Day</option>
-          <option value="5 Day">5 Day</option>
-          <option value="6 Day">6 Day</option>
-          <option value="7 Day">7 Day</option>
-        </select>
-        <button onClick={setTimeFromOpt}>Go!</button>
-      </form>
+
       <form action="" className={disabled ? `${s.hide}` : ""}></form>
     </div>
   );

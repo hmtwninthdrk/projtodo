@@ -26,22 +26,29 @@ const TodoForm = ({ todo, setTodo }) => {
 
   return (
     <div className={s.form}>
-      <select defaultValue={"DEFAULT"} onChange={(e) => setOpt(e.target.value)}>
-        <option value="DEFAULT" disabled>
-          Option
-        </option>
-        <option value={"work"}>Work</option>
-        <option value={"hobby"}>Hobby</option>
-        <option value={"study"}>Study</option>
-      </select>
-      <label>Name</label>
+      <div className={s.cycleForInput}></div>
       <input
         value={value}
+        placeholder="Create a new todo"
         onChange={(e) => setValue(e.target.value)}
         onKeyUp={(e) => handleKeyUp(e)}
       ></input>
-
-      <button onClick={addItem}>Add List</button>
+      <div className={s.buttons}>
+        <select
+          defaultValue={"DEFAULT"}
+          onChange={(e) => setOpt(e.target.value)}
+        >
+          <option value="DEFAULT" disabled>
+            Option
+          </option>
+          <option value={"work"}>Work</option>
+          <option value={"hobby"}>Hobby</option>
+          <option value={"study"}>Study</option>
+          <option value={"buy"}>Buy</option>
+          <option value={"other"}>Other</option>
+        </select>
+        <button onClick={addItem}>Add List</button>
+      </div>
     </div>
   );
 };

@@ -66,7 +66,7 @@ const SignUp = () => {
       <p>
         Есть аккаунт?
         <NavLink
-          to="/signIn"
+          to="/"
           className={(navData) => (navData.isActive ? su.active : "")}
         >
           {" "}

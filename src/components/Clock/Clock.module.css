@@ -1,18 +1,73 @@
 .circle{
-  width: 10em;
-  height: 10em;
-  border: 2px solid red;
+  width: 240px;
+  height: 240px;
+  background: #F0F5F8;
+  box-shadow: -10px -10px 20px #FFFFFF, 10px 10px 20px rgba(0, 0, 0, 0.25);
   border-radius: 50%;
   overflow: hidden;
   display: flex;
+  flex-direction: column;
+  
   align-items: center;
-  justify-content: center;
+  
+}
+
+.clockComponent {
+  
 }
 
 .time{
-  border: 1px solid black;
+  margin-top: 95px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 42px;
+  
+  color: #000000;
+  
 }
 
 .hide {
   display: none;
+}
+
+.startTime {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f6fbfe;
+  box-shadow: -10px -10px 20px rgba(255, 255, 255, 0.25), 10px 10px 20px rgba(31, 31, 31, 0.25);
+  cursor: pointer;
+  margin-left: 11px;
+  margin-top: 10px;
+}
+
+.startTime img {
+  width: 18px;
+  height: 18px;
+}
+
+.form {
+  gap: 15px;
+  margin-top: 10px;
+  border: none;
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.form select{
+  border: none;
+  background: #F0F5F8;
+  outline: none;
+  -moz-appearance: none;
+	/* for Chrome */
+	-webkit-appearance: none;
+  cursor: pointer;
+  margin-left: 11px;
 }

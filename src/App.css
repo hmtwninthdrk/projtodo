@@ -1,92 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital@0;1&family=Pacifico&display=swap');
+
 .container{
   max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
 }
-.main{
-  display: flex;
-  justify-content: space-between;
-}
-
-.left_side{
-  width: 300px;
-}
-
-
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-
-
-
-.allblocks{
-  display: flex;
-  padding-top: 150px;
-  justify-content: space-around;
-}
-
-.block1{
-  width: 300px;
-  height: auto;
-  border: 3px solid #282c34;
-}
-
-.block2{
-  width: 300px;
-  height: auto;
-  border: 3px solid #282c34;
-}
-
-.block3{
-  width: 300px;
-  height: auto;
-  border: 3px solid #282c34;
-}
-
-.work{
-  font-size: 15px;
-  font-weight: bold;
-}
-
-.wr_block{
-  display: flex;
-  justify-content: space-between;
+.ul {
+  padding: 0;
 }
 
 .acc{
@@ -96,16 +16,6 @@
   height: 15px;
 }
 
-.hb_block{
-  display: flex;
-  justify-content: space-between;
-}
-
-
-.st_block{
-  display: flex;
-  justify-content: space-between;
-}
 
 .wr_block.active{
   display: none;
@@ -119,6 +29,13 @@
   display: none;
 }
 
+.or_block.active{
+  display: none;
+}
+
+.buy_block.active{
+  display: none;
+}
 .content{
   display: none;
 }
