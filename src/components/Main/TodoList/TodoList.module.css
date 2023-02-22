@@ -96,6 +96,11 @@ ul li {
   cursor: pointer;
 }
 
+.footerListButtons {
+  display: flex;
+  gap: 20px;
+}
+
   
 
 
