@@ -5,11 +5,22 @@ const Clock = (props) => {
   const [opt, setOpt] = useState();
   const [disabled, setDisabled] = useState(false);
   const clockCycle = (dayTime) => {
-    console.log("inClockCycle");
+    const isNumeric = (n) => !!Number(n);
+    let mn, sc;
+    let flag = true;
+    let hr = dayTime.substr(0, 3);
+    if (isNumeric(hr)) flag = true;
+    else flag = false;
+    if (flag) {
+      hr = parseInt(dayTime.substr(0, 3));
+      mn = parseInt(dayTime.substr(4, 2));
+      sc = parseInt(dayTime.substr(7, 2));
+    } else {
+      hr = parseInt(dayTime.substr(0, 2));
+      mn = parseInt(dayTime.substr(3, 2));
+      sc = parseInt(dayTime.substr(6, 2));
+    }
 
-    let hr = parseInt(dayTime.substr(0, 2));
-    let mn = parseInt(dayTime.substr(3, 2));
-    let sc = parseInt(dayTime.substr(6, 2));
     // if (hr > 0) {
     //   if (sc === 0) {
     //     mn--;
