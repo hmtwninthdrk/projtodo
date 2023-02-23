@@ -1,6 +1,7 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import si from "./SignIn.module.css";
+import { Container } from "react-bootstrap";
 function SignIn({ setIsAuth }) {
   let logInfo = JSON.parse(localStorage.getItem("logInfo"));
   const [password, setPassword] = useState();
@@ -38,29 +39,52 @@ function SignIn({ setIsAuth }) {
   };
 
   return (
-    <div className={si.SignIn}>
+    <div className={si.container}>
+      <div className={si.sign_left}>
+      <div className={si.sign_left_block}>
+          <span className={si.left_text1}>ToDo</span>
+          
+          <div>
+            <span  className={si.left_text2}>List</span>
+          <span className={si.left_text3}>will help you focus on any activity — from work to play.</span></div>
+        </div>
+      </div>
+
+      <div className={si.form}>
+      <div className={si.sign_title}>Sign in</div>
+
+      <div className={si.sign_block}>
+      <label className={si.sign_label}>Name or Email</label>
       <input
-        placeholder={"Имя пользователя или эл. адрес"}
+        className={si.sign_inp}
         onChange={(e) => setLogin(e.target.value)}
       />
+    </div>
+
+    <div className={si.sign_block}>
+      <label className={si.sign_label}>Password</label>
       <input
         type="password"
-        placeholder={"Пароль"}
+        className={si.sign_inp}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button className={si.signInButton} onClick={clickButton}>
-        Войти
+    </div>
+
+      <button className={si.signButton} onClick={clickButton}>
+        Log in
       </button>
-      <p>
-        У вас нет аккаунта?
+      <p className={si.sign_subtext}>
+        Don't have an account?
         <NavLink
           to="/signUp"
           className={(navData) => (navData.isActive ? si.active : "")}
         >
-          {" "}
-          Зарегистрируйтесь
+          {""}
+          <label className={si.sign_subbtn}>Register</label>
+          
         </NavLink>
       </p>
+    </div>
     </div>
   );
 }

@@ -47,34 +47,55 @@ const SignUp = () => {
   }
 
   return (
-    <div className={su.form}>
-      <input
-        placeholder={"Имя пользователя"}
-        onChange={(e) => setLogin(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder={"Пароль"}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button
-        className={su.signUpButton}
-        onClick={(event) => clickButton(event)}
-      >
-        Регистрация
-      </button>
-      <p>
-        Есть аккаунт?
-        <NavLink
-          to="/"
-          className={(navData) => (navData.isActive ? su.active : "")}
-        >
-          {" "}
-          Войти
-        </NavLink>
-      </p>
+     <div className={su.container}>
+       <div className={su.sign_left} >
+        <div className={su.sign_left_block}>
+          <span className={su.left_text1}>ToDo</span>
+          
+          <div>
+            <span  className={su.left_text2}>List</span>
+          <span className={su.left_text3}>will help you focus on any activity — from work to play.</span></div>
+        </div>
+       </div>
+
+<div className={su.form}>
+    <div className={su.sign_title}>Sign up</div>
+
+    <div className={su.sign_block}>
+      <label className={su.sign_label}>Full Name</label>
+      <input className={su.sign_inp} onChange={(e) => setLogin(e.target.value)}/>
     </div>
+
+  
+ <div className={su.sign_block}>
+ <label className={su.sign_label}>Password</label>
+ <input className={su.sign_inp}
+    type="password"
+    onChange={(e) => setPassword(e.target.value)}
+  />
+ </div>
+
+  <button
+    className={su.signButton}
+    onClick={(event) => clickButton(event)}
+  >
+    Register
+  </button>
+  <p className={su.sign_subtext} >
+    Already have an account?
+    <NavLink
+      
+      to="/"
+      className={ (navData) => (navData.isActive ? su.active : "")}
+    >
+      {""}
+      <label className={su.sign_subbtn}>Log in</label>
+    </NavLink>
+  </p>
+</div>
+     </div>
   );
 };
 
 export default SignUp;
+
