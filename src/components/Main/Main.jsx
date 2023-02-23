@@ -15,7 +15,7 @@ const Main = ({ todo, setTodo }) => {
       <Header todo={todo} setTodo={setTodo} />
       <div className="container">
         <TodoList todo={todo} setTodo={setTodo} />
-        <div className="shadowBlock">
+        <div className={ms.shadowBlock}>
           <img src={demon} alt="" />
         </div>
         <Clock time={time} setTime={setTime} />
