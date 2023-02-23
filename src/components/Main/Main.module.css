@@ -22,3 +22,14 @@
     height: 250px;
   }
 
+  @media (max-width: 768px){
+    
+    .shadowBlock{
+      margin-top: 305px;
+      margin-left: 17%;
+    }
+    
+    
+
+    
+}

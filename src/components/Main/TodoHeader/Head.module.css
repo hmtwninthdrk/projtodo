@@ -31,3 +31,19 @@
     width:25.11px;
     height:26px;
 }
+
+@media (max-width: 768px){
+    
+    .textHead {
+        display: flex;
+        justify-content: space-between;
+        width: 85%;
+    
+    }
+
+    .head {
+        background-image: url("../../icons/BitmapMobile.jpg");
+        background-size: cover;
+    }
+    
+}

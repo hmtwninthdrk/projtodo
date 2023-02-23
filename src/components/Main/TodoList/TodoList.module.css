@@ -133,3 +133,15 @@ ul li {
   padding-bottom: 5px;
   cursor: pointer;
 }
+
+.close {
+  display: flex;
+  gap: 13px;
+}
+@media (max-width: 768px){
+    
+  .todoListContent {
+    width: 90%;
+  }
+  
+}

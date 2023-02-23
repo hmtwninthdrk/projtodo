@@ -71,3 +71,26 @@
   cursor: pointer;
   margin-left: 11px;
 }
+
+@media (max-width: 768px){
+    
+  .circle {
+    width: 210px;
+    height: 210px;
+  }
+  
+  .clockComponent {
+    left: 90px;
+    top: 623px;
+  }
+  
+  .time{
+    margin-top: 77px;
+  }
+
+  .form {
+    margin-top: 0;
+  }
+
+  
+}
