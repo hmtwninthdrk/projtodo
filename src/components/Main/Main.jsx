@@ -18,6 +18,7 @@ const Main = ({ todo, setTodo }) => {
         <div className={ms.shadowBlock}>
           <img src={demon} alt="" />
         </div>
+
         <Clock time={time} setTime={setTime} />
       </div>
     </div>
