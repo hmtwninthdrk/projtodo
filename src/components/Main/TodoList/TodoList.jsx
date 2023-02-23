@@ -3,6 +3,8 @@ import arrow from "../../icons/arrow.png";
 import book from "../../icons/book.png";
 import buy from "../../icons/buy.png";
 import work from "../../icons/work.png";
+import notdone from "../../icons/notdone.svg"
+import done from "../../icons/done.svg"
 import hobby from "../../icons/hobby.png";
 import other from "../../icons/other.png";
 import s from "./TodoList.module.css";
@@ -99,6 +101,23 @@ const TodoList = (props) => {
     }
   }
 
+
+  function item_done(){
+    
+  }
+
+  function statusTodo(id){
+    let newTodo = [...props.todo].filter(item=>{
+      if(item.id==id){
+        item.status = !item.status;
+      }
+      return item;
+    })
+    props.setTodo(newTodo)
+  }
+
+
+
   const [sortState, setSortState] = useState("none");
   function sorting(sortState) {
     if (sortState == "ascending") {
@@ -146,10 +165,19 @@ const TodoList = (props) => {
           <div className="content">
             <ul className="ul">
               {props.todo.map((item) =>
+              
                 item.type === "work" ? (
-                  <li className={s.item} key={item.id}>
+                 <div className={s.w_done}>
+                  <div className={s.notdone} onClick={()=>statusTodo(item.id)}>
+                    {
+                      item.status ? <img src={notdone} ></img>: <img src={done} ></img>
+                    }
+                  </div>
+                    
+                  <li className={!item.status? s.close:s.item} key={item.id}>
                     {item.name}
                   </li>
+                 </div>
                 ) : (
                   ""
                 )
@@ -173,9 +201,16 @@ const TodoList = (props) => {
             <ul className="ul">
               {props.todo.map((item) =>
                 item.type === "hobby" ? (
-                  <li className={s.item} key={item.id}>
+                  <div className={s.w_done}>
+                  <div className={s.notdone} onClick={()=>statusTodo(item.id)}>
+                    {
+                      item.status ? <img src={notdone} ></img>: <img src={done} ></img>
+                    }
+                  </div>
+                  <li className={!item.status? s.close:s.item} key={item.id}>
                     {item.name}
                   </li>
+                  </div>
                 ) : (
                   ""
                 )
@@ -199,9 +234,16 @@ const TodoList = (props) => {
             <ul className="ul">
               {props.todo.map((item) =>
                 item.type === "study" ? (
-                  <li className={s.item} key={item.id}>
+                  <div className={s.w_done}>
+                  <div className={s.notdone} onClick={()=>statusTodo(item.id)}>
+                    {
+                      item.status ? <img src={notdone} ></img>: <img src={done} ></img>
+                    }
+                  </div>
+                  <li className={!item.status? s.close:s.item} key={item.id}>
                     {item.name}
                   </li>
+                  </div>
                 ) : (
                   ""
                 )
@@ -225,9 +267,16 @@ const TodoList = (props) => {
             <ul className="ul">
               {props.todo.map((item) =>
                 item.type === "buy" ? (
-                  <li className={s.item} key={item.id}>
+                  <div className={s.w_done}>
+                  <div className={s.notdone} onClick={()=>statusTodo(item.id)}>
+                    {
+                      item.status ? <img src={notdone} ></img>: <img src={done} ></img>
+                    }
+                  </div>
+                  <li className={!item.status? s.close:s.item} key={item.id}>
                     {item.name}
                   </li>
+                  </div>
                 ) : (
                   ""
                 )
@@ -251,9 +300,16 @@ const TodoList = (props) => {
             <ul className="ul">
               {props.todo.map((item) =>
                 item.type === "other" ? (
-                  <li className={s.item} key={item.id}>
+                  <div className={s.w_done}>
+                  <div className={s.notdone} onClick={()=>statusTodo(item.id)}>
+                    {
+                      item.status ? <img src={notdone} ></img>: <img src={done} ></img>
+                    }
+                  </div>
+                  <li className={!item.status? s.close:s.item} key={item.id}>
                     {item.name}
                   </li>
+                  </div>
                 ) : (
                   ""
                 )

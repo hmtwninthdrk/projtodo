@@ -51,8 +51,14 @@ ul li {
 
 }
 .item {
-  
   color: #494C6B;
+  margin-left: 10px;
+}
+
+.close{
+  color: #494C6B;
+  margin-left: 10px;
+  text-decoration: line-through;
 }
 .TodoList{
   display: flex;
@@ -115,7 +121,13 @@ ul li {
 }
 
   
+.w_done{
+  margin-left: 5px;
+  display: flex;
+  align-items: center;
+}
 
-
-
-
+.notdone{
+  padding-bottom: 5px;
+  cursor: pointer;
+}
