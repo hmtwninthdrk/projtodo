@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Clock from "../Clock/Clock";
-
+import demon from "../icons/demon1.png";
 import Header from "./TodoHeader/Header";
 import ms from "./Main.module.css";
 import { Navigate } from "react-router-dom";
@@ -15,7 +15,9 @@ const Main = ({ todo, setTodo }) => {
       <Header todo={todo} setTodo={setTodo} />
       <div className="container">
         <TodoList todo={todo} setTodo={setTodo} />
-
+        <div className="shadowBlock">
+          <img src={demon} alt="" />
+        </div>
         <Clock time={time} setTime={setTime} />
       </div>
     </div>

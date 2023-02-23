@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import arrow from "../../icons/arrow.png";
+import book from "../../icons/book.png";
+import buy from "../../icons/buy.png";
+import work from "../../icons/work.png";
+import hobby from "../../icons/hobby.png";
+import other from "../../icons/other.png";
 import s from "./TodoList.module.css";
 const TodoList = (props) => {
   console.log(props.todo);
@@ -130,7 +135,10 @@ const TodoList = (props) => {
         <div className="scroll_block">
           <div className="wr_block">
             <div onClick={workbtn} className={s.itemType}>
-              Work
+              <div className={s.leftItemType}>
+                <img src={work} alt="" />
+                Work
+              </div>
               <img className="acc" src={arrow}></img>
             </div>
           </div>
@@ -153,7 +161,10 @@ const TodoList = (props) => {
         <div className="scroll_block">
           <div className="hb_block">
             <div onClick={hobbybtn} className={s.itemType}>
-              Hobby
+              <div className={s.leftItemType}>
+                <img src={hobby} alt="" />
+                Hobby
+              </div>
               <img className="acc" src={arrow}></img>
             </div>
           </div>
@@ -176,7 +187,11 @@ const TodoList = (props) => {
         <div className="scroll_block">
           <div className="st_block">
             <div onClick={studybtn} className={s.itemType}>
-              Study
+              <div className={s.leftItemType}>
+                <img src={book} alt="" />
+                Study
+              </div>
+
               <img className="acc" src={arrow}></img>
             </div>
           </div>
@@ -198,7 +213,10 @@ const TodoList = (props) => {
         <div className="scroll_block">
           <div className="buy_block">
             <div onClick={buybtn} className={s.itemType}>
-              Buy
+              <div className={s.leftItemType}>
+                <img src={buy} alt="" />
+                Buy
+              </div>
               <img className="acc" src={arrow}></img>
             </div>
           </div>
@@ -221,7 +239,10 @@ const TodoList = (props) => {
         <div className="scroll_block">
           <div className="or_block">
             <div onClick={otherbtn} className={s.itemType}>
-              Other
+              <div className={s.leftItemType}>
+                <img src={other} alt="" />
+                Other
+              </div>
               <img className="acc" src={arrow}></img>
             </div>
           </div>

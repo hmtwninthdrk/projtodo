@@ -7,13 +7,13 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  
   align-items: center;
   
 }
 
 .clockComponent {
-  
+  position: absolute;
+  top: 30px;
 }
 
 .time{

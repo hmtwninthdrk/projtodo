@@ -46,7 +46,7 @@ ul li {
     /* identical to box height */
 
   letter-spacing: -0.25px;
-  padding-left: 50px;
+  
   
 
 }
@@ -60,6 +60,19 @@ ul li {
   position: relative;
   font-family: 'Josefin Sans';
   font-style: normal;
+}
+
+
+.leftItemType img {
+  width: 30px;
+  height: 30px;
+}
+
+.leftItemType {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  margin-left: 10px;
 }
 
 .footerList {
