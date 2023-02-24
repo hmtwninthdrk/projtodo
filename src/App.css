@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital@0;1&family=Pacifico&display=swap');
 
+html {
+  overflow:  hidden;
+}
 .container{
   max-width: 1440px;
   margin-left: auto;
@@ -16,7 +19,7 @@
 
 
 .main {
-  min-height: 820px;
+  min-height: 900px;
   background-color: #f7fafc;
 }
 .acc{
