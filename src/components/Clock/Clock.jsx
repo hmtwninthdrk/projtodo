@@ -66,19 +66,15 @@ const Clock = (props) => {
   const toggleForm = () => {
     if (opt != null) {
       if (!disabled) {
-        console.log("hi");
         setDisabled(true);
-        console.log("Disabled change", disabled);
       }
       if (disabled) {
         setDisabled(false);
         props.setTime("00:00:00");
-        console.log("Disabled change", disabled);
       }
     }
   };
   const setTimeFromOpt = () => {
-    console.log("inFromOpt");
     let dayTime;
     switch (opt) {
       case "1 Day":
@@ -114,8 +110,14 @@ const Clock = (props) => {
     clockCycle(dayTime);
   };
 
+  function white_mode() {
+    props.setWmode(true);
+  }
+
+  props.setWmode(false);
+
   return (
-    <div className={s.clockComponent}>
+    <div onClick={white_mode} className={s.clockComponent}>
       <div className={s.circle}>
         <div className={s.time}>{props.time}</div>
         <form className={`${s.form} ${disabled ? `${s.hide}` : ""}`} action="#">

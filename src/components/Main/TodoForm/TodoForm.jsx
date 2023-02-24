@@ -26,13 +26,14 @@ const TodoForm = ({ todo, setTodo, search, setSearch }) => {
 
   function back() {
     setSearch({ ...search, flag: false });
+    setValue("");
   }
 
   function changeTextInSearch(value) {
     setValue(value);
     setSearch({ ...search, text: value });
   }
-  console.log(search);
+
   return (
     <div className={s.form}>
       <div className={search.flag ? s.disable : ""}>
