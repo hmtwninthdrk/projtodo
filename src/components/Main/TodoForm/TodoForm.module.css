@@ -82,7 +82,7 @@
     
     .form input{
         width: 75%;
-        
+        outline: none;
     }
     
     .form {
