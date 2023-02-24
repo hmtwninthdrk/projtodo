@@ -16,6 +16,13 @@
   height: 15px;
 }
 
+.accclose{
+  cursor: pointer;
+  margin-right: 5px;
+  width: 15px;
+  height: 15px;
+}
+
 
 .wr_block.active{
   display: none;

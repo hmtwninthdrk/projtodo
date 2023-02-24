@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import arrow from "../../icons/arrow.png";
+import arrowclose from "../../icons/arrowclose.png";
 import book from "../../icons/book.png";
 import edit from "../../icons/edit.png";
 import deletebtn from "../../icons/delete.png";
@@ -12,94 +13,206 @@ import other from "../../icons/other.png";
 
 import s from "./TodoList.module.css";
 const TodoList = (props) => {
+  const [arrows,setArrows] = useState(true)
+
   function workbtn() {
+    setArrows(!arrows)
+    
     let buy = document.querySelector(".buy_block");
     let acc = document.getElementsByClassName("acc");
     let content = document.getElementsByClassName("content");
     let hobby = document.querySelector(".hb_block");
     let study = document.querySelector(".st_block");
     let other = document.querySelector(".or_block");
+    acc[0].addEventListener("click", workbtn)
+    
+    
     for (let i = 0; i < acc.length; i++) {
-      acc[i].addEventListener("click", function () {
-        content[i].classList.toggle("active");
-        hobby.classList.toggle("active");
-        study.classList.toggle("active");
-        other.classList.toggle("active");
-        buy.classList.toggle("active");
-      });
-    }
+     
+        content[0].classList.add("active");
+        hobby.classList.add("active");
+        study.classList.add("active");
+        other.classList.add("active");
+        buy.classList.add("active");
+      };
+  }
+
+  function wclose(){
+    setArrows(!arrows)
+    let buy = document.querySelector(".buy_block");
+    let accclose = document.getElementsByClassName("accclose")
+    let content = document.getElementsByClassName("content");
+    let hobby = document.querySelector(".hb_block");
+    let study = document.querySelector(".st_block");
+    let other = document.querySelector(".or_block");
+    accclose[0].addEventListener("click",wclose)
+    
+    for (let i = 0; i < accclose.length; i++) {
+     
+      content[0].classList.remove("active");
+      hobby.classList.remove("active");
+      study.classList.remove("active");
+      other.classList.remove("active");
+      buy.classList.remove("active");
+    };
   }
 
   function hobbybtn() {
+    setArrows(!arrows)
     let buy = document.querySelector(".buy_block");
     let acc = document.getElementsByClassName("acc");
     let content = document.getElementsByClassName("content");
     let work = document.querySelector(".wr_block");
     let study = document.querySelector(".st_block");
     let other = document.querySelector(".or_block");
+    acc[1].addEventListener("click", hobbybtn)
     for (let i = 0; i < acc.length; i++) {
-      acc[i].addEventListener("click", function () {
-        content[i].classList.toggle("active");
-        work.classList.toggle("active");
-        study.classList.toggle("active");
-        other.classList.toggle("active");
-        buy.classList.toggle("active");
-      });
+        
+        content[1].classList.add("active");
+        work.classList.add("active");
+        study.classList.add("active");
+        other.classList.add("active");
+        buy.classList.add("active");
+      
     }
   }
+
+  function hclose(){
+    setArrows(!arrows)
+    let buy = document.querySelector(".buy_block");
+    let accclose = document.getElementsByClassName("accclose")
+    let content = document.getElementsByClassName("content");
+    let work = document.querySelector(".wr_block");
+    let study = document.querySelector(".st_block");
+    let other = document.querySelector(".or_block");
+    accclose[1].addEventListener("click",hclose)
+    for (let i = 0; i < accclose.length; i++) {
+      content[1].classList.remove("active");
+        work.classList.remove("active");
+        study.classList.remove("active");
+        other.classList.remove("active");
+        buy.classList.remove("active");
+    };
+  }
+
+  
 
   function studybtn() {
+    setArrows(!arrows)
     let buy = document.querySelector(".buy_block");
     let acc = document.getElementsByClassName("acc");
     let content = document.getElementsByClassName("content");
     let work = document.querySelector(".wr_block");
     let hobby = document.querySelector(".hb_block");
     let other = document.querySelector(".or_block");
+    acc[2].addEventListener("click", studybtn)
     for (let i = 0; i < acc.length; i++) {
-      acc[i].addEventListener("click", function () {
-        content[i].classList.toggle("active");
-        work.classList.toggle("active");
-        hobby.classList.toggle("active");
-        other.classList.toggle("active");
-        buy.classList.toggle("active");
-      });
+      
+        content[2].classList.add("active");
+        work.classList.add("active");
+        hobby.classList.add("active");
+        other.classList.add("active");
+        buy.classList.add("active");
+      
     }
   }
 
+  function sclose(){
+    setArrows(!arrows)
+    let buy = document.querySelector(".buy_block");
+    let accclose = document.getElementsByClassName("accclose");
+    let content = document.getElementsByClassName("content");
+    let work = document.querySelector(".wr_block");
+    let hobby = document.querySelector(".hb_block");
+    let other = document.querySelector(".or_block");
+    accclose[2].addEventListener("click",sclose)
+    for (let i = 0; i < accclose.length; i++) {
+     
+      content[2].classList.remove("active");
+        work.classList.remove("active");
+        hobby.classList.remove("active");
+        other.classList.remove("active");
+        buy.classList.remove("active");
+    };
+  }
+
+
   function buybtn() {
+    setArrows(!arrows)
     let acc = document.getElementsByClassName("acc");
     let content = document.getElementsByClassName("content");
     let work = document.querySelector(".wr_block");
     let hobby = document.querySelector(".hb_block");
     let study = document.querySelector(".st_block");
     let other = document.querySelector(".or_block");
+    acc[3].addEventListener("click", buybtn)
     for (let i = 0; i < acc.length; i++) {
-      acc[i].addEventListener("click", function () {
-        content[i].classList.toggle("active");
-        work.classList.toggle("active");
-        hobby.classList.toggle("active");
-        study.classList.toggle("active");
-        other.classList.toggle("active");
-      });
+     
+        content[3].classList.add("active");
+        work.classList.add("active");
+        hobby.classList.add("active");
+        study.classList.add("active");
+        other.classList.add("active");
+      
     }
+  }
+
+  function bclose(){
+    setArrows(!arrows)
+    let accclose = document.getElementsByClassName("accclose");
+    let content = document.getElementsByClassName("content");
+    let work = document.querySelector(".wr_block");
+    let hobby = document.querySelector(".hb_block");
+    let study = document.querySelector(".st_block");
+    let other = document.querySelector(".or_block");
+    accclose[3].addEventListener("click",bclose)
+    for (let i = 0; i < accclose.length; i++) {
+     
+      content[3].classList.remove("active");
+        work.classList.remove("active");
+        hobby.classList.remove("active");
+        study.classList.remove("active");
+        other.classList.remove("active");
+    };
   }
 
   function otherbtn() {
+    setArrows(!arrows)
     let acc = document.getElementsByClassName("acc");
     let content = document.getElementsByClassName("content");
     let work = document.querySelector(".wr_block");
     let hobby = document.querySelector(".hb_block");
     let study = document.querySelector(".st_block");
     let buy = document.querySelector(".buy_block");
+    acc[4].addEventListener("click", otherbtn)
     for (let i = 0; i < acc.length; i++) {
-      acc[i].addEventListener("click", function () {
-        content[i].classList.toggle("active");
-        work.classList.toggle("active");
-        hobby.classList.toggle("active");
-        study.classList.toggle("active");
-        buy.classList.toggle("active");
-      });
+     
+        content[4].classList.add("active");
+        work.classList.add("active");
+        hobby.classList.add("active");
+        study.classList.add("active");
+        buy.classList.add("active");
+      
     }
+  }
+
+  function oclose(){
+    setArrows(!arrows)
+    let accclose = document.getElementsByClassName("accclose");
+    let content = document.getElementsByClassName("content");
+    let work = document.querySelector(".wr_block");
+    let hobby = document.querySelector(".hb_block");
+    let study = document.querySelector(".st_block");
+    let buy = document.querySelector(".buy_block");
+    accclose[4].addEventListener("click",oclose)
+    for (let i = 0; i < accclose.length; i++) {
+     
+      content[4].classList.remove("active");
+        work.classList.remove("active");
+        hobby.classList.remove("active");
+        study.classList.remove("active");
+        buy.classList.remove("active");
+    };
   }
 
 
@@ -176,12 +289,12 @@ const TodoList = (props) => {
       <div className={s.todoListContent}>
         <div className="scroll_block">
           <div className="wr_block">
-            <div onClick={workbtn} className={s.itemType}>
+            <div  className={s.itemType}>
               <div className={s.leftItemType}>
                 <img src={work} alt="" />
                 Work
               </div>
-              <img className="acc" src={arrow}></img>
+              {arrows?<img onClick={workbtn}  className="acc" src={arrow}></img>:<img onClick={wclose}  className="accclose" src={arrowclose}></img>}
             </div>
           </div>
 
@@ -238,12 +351,12 @@ const TodoList = (props) => {
 
         <div className="scroll_block">
           <div className="hb_block">
-            <div onClick={hobbybtn} className={s.itemType}>
+            <div  className={s.itemType}>
               <div className={s.leftItemType}>
                 <img src={hobby} alt="" />
                 Hobby
               </div>
-              <img className="acc" src={arrow}></img>
+              {arrows?<img onClick={hobbybtn}  className="acc" src={arrow}></img>:<img onClick={hclose}  className="accclose" src={arrowclose}></img>}
             </div>
           </div>
 
@@ -301,13 +414,13 @@ const TodoList = (props) => {
 
         <div className="scroll_block">
           <div className="st_block">
-            <div onClick={studybtn} className={s.itemType}>
+            <div  className={s.itemType}>
               <div className={s.leftItemType}>
                 <img src={book} alt="" />
                 Study
               </div>
 
-              <img className="acc" src={arrow}></img>
+              {arrows?<img onClick={studybtn}  className="acc" src={arrow}></img>:<img onClick={sclose}  className="accclose" src={arrowclose}></img>}
             </div>
           </div>
           <div className="content">
@@ -362,12 +475,12 @@ const TodoList = (props) => {
 
         <div className="scroll_block">
           <div className="buy_block">
-            <div onClick={buybtn} className={s.itemType}>
+            <div  className={s.itemType}>
               <div className={s.leftItemType}>
                 <img src={buy} alt="" />
                 Buy
               </div>
-              <img className="acc" src={arrow}></img>
+              {arrows?<img onClick={buybtn}  className="acc" src={arrow}></img>:<img onClick={bclose}  className="accclose" src={arrowclose}></img>}
             </div>
           </div>
 
@@ -422,12 +535,12 @@ const TodoList = (props) => {
 
         <div className="scroll_block">
           <div className="or_block">
-            <div onClick={otherbtn} className={s.itemType}>
+            <div  className={s.itemType}>
               <div className={s.leftItemType}>
                 <img src={other} alt="" />
                 Other
               </div>
-              <img className="acc" src={arrow}></img>
+              {arrows?<img onClick={otherbtn}  className="acc" src={arrow}></img>:<img onClick={oclose}  className="accclose" src={arrowclose}></img>}
             </div>
           </div>
 
