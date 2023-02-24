@@ -53,12 +53,13 @@ ul li {
 .item {
   color: #494C6B;
   display: flex;
+  align-items: center;
   gap: 13px;
+  
 }
 
 .close{
   color: #494C6B;
-  
   text-decoration: line-through;
 }
 .TodoList{
@@ -125,6 +126,7 @@ ul li {
 .w_done{
   margin-left: 5px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -138,6 +140,33 @@ ul li {
   display: flex;
   gap: 13px;
 }
+
+
+.delete_item{
+  width: 20px;
+  margin-right: 8px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.edit_item{
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+.inp_edit{
+  border: 0;
+  border-bottom: #000 1px solid;
+  height: 30px;
+}
+
+.save_text{
+  cursor: pointer;
+  margin-right: 10px;
+}
+
 @media (max-width: 768px){
     
   .todoListContent {

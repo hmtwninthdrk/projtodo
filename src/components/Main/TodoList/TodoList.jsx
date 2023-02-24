@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import arrow from "../../icons/arrow.png";
 import book from "../../icons/book.png";
+import edit from "../../icons/edit.png";
+import deletebtn from "../../icons/delete.png";
 import buy from "../../icons/buy.png";
 import work from "../../icons/work.png";
 import notdone from "../../icons/notdone.svg";
 import done from "../../icons/done.svg";
 import hobby from "../../icons/hobby.png";
 import other from "../../icons/other.png";
+
 import s from "./TodoList.module.css";
 const TodoList = (props) => {
   function workbtn() {
@@ -99,7 +102,34 @@ const TodoList = (props) => {
     }
   }
 
-  function item_done() {}
+
+  function deleteItem(id) {
+    let newlist = [...props.todo].filter((item) => item.id != id);
+    props.setTodo(newlist);
+  }
+
+  const [change, setChange] = useState(null);
+  const [value,setValue] = useState()
+
+
+  function editItem(id, name) {
+    setChange(id);
+    setValue(name);
+  }
+
+  function saveChanges(id) {
+    let newList = [...props.todo].map((item) => {
+      if (item.id == id) {
+        item.name = value;
+      }
+      return item;
+    });
+    props.setTodo(newList);
+    setChange(null);
+  }
+
+
+
 
   function statusTodo(id) {
     let newTodo = [...props.todo].filter((item) => {
@@ -160,6 +190,7 @@ const TodoList = (props) => {
               {props.todo.map((item) =>
                 item.type === "work" ? (
                   <div className={s.w_done}>
+                    
                     <li
                       className={!item.status ? s.close : s.item}
                       key={item.id}
@@ -174,8 +205,28 @@ const TodoList = (props) => {
                           <img src={done}></img>
                         )}
                       </div>
-                      {item.name}
-                    </li>
+                      {change == item.id ? (
+            
+              <input className={s.inp_edit} value={value} onChange={(e) => setValue(e.target.value)} />
+           
+          ) : (
+            <div>{item.name}</div>
+          )}
+           </li>
+                    
+          {change == item.id ? (
+            
+              <div className={s.save_text} onClick={() => saveChanges(item.id)}>
+                Save
+              </div>
+            
+          ) : (
+            <>
+                    <img onClick={() => editItem(item.id, item.name)} className={s.edit_item} src={edit}></img>
+                    <img onClick={() => deleteItem(item.id)} className={s.delete_item} src={deletebtn}></img>
+                    </>
+          )}
+
                   </div>
                 ) : (
                   ""
@@ -201,6 +252,7 @@ const TodoList = (props) => {
               {props.todo.map((item) =>
                 item.type === "hobby" ? (
                   <div className={s.w_done}>
+                    
                     <li
                       className={!item.status ? s.close : s.item}
                       key={item.id}
@@ -215,8 +267,29 @@ const TodoList = (props) => {
                           <img src={done}></img>
                         )}
                       </div>
-                      {item.name}
+                      {change == item.id ? (
+            
+            <input className={s.inp_edit} value={value} onChange={(e) => setValue(e.target.value)} />
+         
+        ) : (
+          <div>{item.name}</div>
+        )}
+
                     </li>
+
+                    
+                    {change == item.id ? (
+            
+              <div className={s.save_text} onClick={() => saveChanges(item.id)}>
+                Save
+              </div>
+            
+          ) : (
+            <>
+                    <img onClick={() => editItem(item.id, item.name)} className={s.edit_item} src={edit}></img>
+                    <img onClick={() => deleteItem(item.id)} className={s.delete_item} src={deletebtn}></img>
+                    </>
+          )}
                   </div>
                 ) : (
                   ""
@@ -242,6 +315,7 @@ const TodoList = (props) => {
               {props.todo.map((item) =>
                 item.type === "study" ? (
                   <div className={s.w_done}>
+                    
                     <li
                       className={!item.status ? s.close : s.item}
                       key={item.id}
@@ -256,8 +330,27 @@ const TodoList = (props) => {
                           <img src={done}></img>
                         )}
                       </div>
-                      {item.name}
+                      {change == item.id ? (
+            
+            <input className={s.inp_edit} value={value} onChange={(e) => setValue(e.target.value)} />
+         
+        ) : (
+          <div>{item.name}</div>
+        )}
                     </li>
+                    {change == item.id ? (
+            
+            <div className={s.save_text} onClick={() => saveChanges(item.id)}>
+              Save
+            </div>
+          
+        ) : (
+          <>
+                  <img onClick={() => editItem(item.id, item.name)} className={s.edit_item} src={edit}></img>
+                  <img onClick={() => deleteItem(item.id)} className={s.delete_item} src={deletebtn}></img>
+                  </>
+        )}
+                    
                   </div>
                 ) : (
                   ""
@@ -283,6 +376,7 @@ const TodoList = (props) => {
               {props.todo.map((item) =>
                 item.type === "buy" ? (
                   <div className={s.w_done}>
+                    
                     <li
                       className={!item.status ? s.close : s.item}
                       key={item.id}
@@ -297,8 +391,26 @@ const TodoList = (props) => {
                           <img src={done}></img>
                         )}
                       </div>
-                      {item.name}
+                      {change == item.id ? (
+            
+            <input className={s.inp_edit} value={value} onChange={(e) => setValue(e.target.value)} />
+         
+        ) : (
+          <div>{item.name}</div>
+        )}
                     </li>
+                    {change == item.id ? (
+            
+            <div className={s.save_text} onClick={() => saveChanges(item.id)}>
+              Save
+            </div>
+          
+        ) : (
+          <>
+                  <img onClick={() => editItem(item.id, item.name)} className={s.edit_item} src={edit}></img>
+                  <img onClick={() => deleteItem(item.id)} className={s.delete_item} src={deletebtn}></img>
+                  </>
+        )}
                   </div>
                 ) : (
                   ""
@@ -338,8 +450,26 @@ const TodoList = (props) => {
                           <img src={done}></img>
                         )}
                       </div>
-                      {item.name}
+                      {change == item.id ? (
+            
+            <input className={s.inp_edit} value={value} onChange={(e) => setValue(e.target.value)} />
+         
+        ) : (
+          <div>{item.name}</div>
+        )}
                     </li>
+                    {change == item.id ? (
+            
+            <div className={s.save_text} onClick={() => saveChanges(item.id)}>
+              Save
+            </div>
+          
+        ) : (
+          <>
+                  <img onClick={() => editItem(item.id, item.name)} className={s.edit_item} src={edit}></img>
+                  <img onClick={() => deleteItem(item.id)} className={s.delete_item} src={deletebtn}></img>
+                  </>
+        )}
                   </div>
                 ) : (
                   ""
