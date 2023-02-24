@@ -10,8 +10,8 @@ import Main from './components/Main/Main';
 
 function App() {
   const [isAuth, setIsAuth] = useState(false)
-    const logInfo = JSON.parse(localStorage.getItem("logInfo")) || []
-    localStorage.setItem(
+    const logInfo = JSON.parse(localStorage.getItem("logInfo"))
+    if(!logInfo)localStorage.setItem(
       "logInfo",
       JSON.stringify({
         users: [{ login: "ad1lek", password: "123123", isAuth: false }],
