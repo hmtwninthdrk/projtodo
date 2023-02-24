@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import s from "./TodoForm.module.css";
 
-const TodoForm = ({ todo, setTodo }) => {
+const TodoForm = ({ todo, setTodo, search, setSearch }) => {
   const [value, setValue] = useState();
   const [opt, setOpt] = useState();
 
@@ -24,30 +24,53 @@ const TodoForm = ({ todo, setTodo }) => {
     if (e.key === "Enter") addItem();
   };
 
+  function back() {
+    setSearch({ ...search, flag: false });
+  }
+
+  function changeTextInSearch(value) {
+    setValue(value);
+    setSearch({ ...search, text: value });
+  }
+  console.log(search);
   return (
     <div className={s.form}>
-      <div className={s.cycleForInput}></div>
-      <input
-        value={value}
-        placeholder="Create a new todo"
-        onChange={(e) => setValue(e.target.value)}
-        onKeyUp={(e) => handleKeyUp(e)}
-      ></input>
-      <div className={s.buttons}>
-        <select
-          defaultValue={"DEFAULT"}
-          onChange={(e) => setOpt(e.target.value)}
-        >
-          <option value="DEFAULT" disabled>
-            Option
-          </option>
-          <option value={"work"}>Work</option>
-          <option value={"hobby"}>Hobby</option>
-          <option value={"study"}>Study</option>
-          <option value={"buy"}>Buy</option>
-          <option value={"other"}>Other</option>
-        </select>
-        <button onClick={addItem}>Add List</button>
+      <div className={search.flag ? s.disable : ""}>
+        <div className={`${s.cycleForInput}`}></div>
+        <input
+          value={value}
+          placeholder="Create a new todo"
+          onChange={(e) => setValue(e.target.value)}
+          onKeyUp={(e) => handleKeyUp(e)}
+        ></input>
+        <div className={s.buttons}>
+          <select
+            defaultValue={"DEFAULT"}
+            onChange={(e) => setOpt(e.target.value)}
+          >
+            <option value="DEFAULT" disabled>
+              Option
+            </option>
+            <option value={"work"}>Work</option>
+            <option value={"hobby"}>Hobby</option>
+            <option value={"study"}>Study</option>
+            <option value={"buy"}>Buy</option>
+            <option value={"other"}>Other</option>
+          </select>
+          <button onClick={addItem}>Add List</button>
+        </div>
+      </div>
+
+      <div className={search.flag ? "" : s.disable}>
+        <div className={`${s.cycleForInput}`}></div>
+        <input
+          value={value}
+          placeholder="Searching"
+          onChange={(e) => changeTextInSearch(e.target.value)}
+        ></input>
+        <div className={s.buttons}>
+          <button onClick={back}>Back</button>
+        </div>
       </div>
     </div>
   );

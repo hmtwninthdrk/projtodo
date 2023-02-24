@@ -24,7 +24,7 @@ function App() {
             }
         })
     }, [])
-
+    
   
   const [todo,setTodo] = useState([{
     id:1,
@@ -44,14 +44,20 @@ function App() {
     name: "Third list",
     type: "study"
   },])
+
+  const [search, setSearch] = useState(
+    {
+      flag:false,
+      text: "112365131233121"
+    }
+  );
   
-  const [time, setTime] = useState("00:00:00")
   
   return (
     <BrowserRouter>
       <Routes>
       <Route path="/main" element={<Main
-      todo={todo} setTodo={setTodo}/>}/>
+      todo={todo} setTodo={setTodo} search={search} setSearch={setSearch}/>}/>
         <Route path='/signUp' element={<SignUp/>}/>
         <Route path='/' element={<SignIn setIsAuth={setIsAuth}/>}/>
       </Routes>

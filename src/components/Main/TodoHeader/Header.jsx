@@ -10,7 +10,12 @@ const Header = (props) => {
         <p>TODO</p>
         <img src={luna} alt="" />
       </div>
-      <TodoForm todo={props.todo} setTodo={props.setTodo} />
+      <TodoForm
+        todo={props.todo}
+        setTodo={props.setTodo}
+        search={props.search}
+        setSearch={props.setSearch}
+      />
     </div>
   );
 };
