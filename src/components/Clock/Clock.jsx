@@ -114,8 +114,22 @@ const Clock = (props) => {
     clockCycle(dayTime);
   };
 
+  
+
+  function white_mode(){
+    props.setWmode(true)
+  }
+  
+  props.setWmode(false)
+  
+  
+  
+  
+  
+
+
   return (
-    <div className={s.clockComponent}>
+    <div onClick={white_mode} className={s.clockComponent}>
       <div className={s.circle}>
         <div className={s.time}>{props.time}</div>
         <form className={`${s.form} ${disabled ? `${s.hide}` : ""}`} action="#">

@@ -9,6 +9,16 @@
   padding: 0;
 }
 
+.main.darkmode{
+  background-color: #000;
+}
+
+
+
+.main {
+  min-height: 754px;
+  background-color: #f7fafc;
+}
 .acc{
   cursor: pointer;
   margin-right: 5px;

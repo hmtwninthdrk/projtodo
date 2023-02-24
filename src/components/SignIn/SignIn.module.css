@@ -99,15 +99,15 @@
 
     .sign_left{
         width: auto;   
-           
-        
+        height: 350px;
     }
 
     .sign_left_block{
         margin-left: 55px;
-        padding-top: 400px;
+        padding-top: 50px;
         line-height: 40px;
         margin-top: 0;
+        
     }
 
     .left_text1{
