@@ -38,12 +38,15 @@ const TodoForm = ({ todo, setTodo, search, setSearch }) => {
     <div className={s.form}>
       <div className={search.flag ? s.disable : ""}>
         <div className={`${s.cycleForInput}`}></div>
-        <input
-          value={value}
-          placeholder="Create a new todo"
-          onChange={(e) => setValue(e.target.value)}
-          onKeyUp={(e) => handleKeyUp(e)}
-        ></input>
+        <div className={s.wrapper_input}>
+          <input
+            value={value}
+            placeholder="Create a new todo"
+            onChange={(e) => setValue(e.target.value)}
+            onKeyUp={(e) => handleKeyUp(e)}
+          ></input>
+        </div>
+
         <div className={s.buttons}>
           <select
             defaultValue={"DEFAULT"}
@@ -64,11 +67,15 @@ const TodoForm = ({ todo, setTodo, search, setSearch }) => {
 
       <div className={search.flag ? "" : s.disable}>
         <div className={`${s.cycleForInput}`}></div>
-        <input
-          value={value}
-          placeholder="Searching"
-          onChange={(e) => changeTextInSearch(e.target.value)}
-        ></input>
+        <div className={s.wrapper_input}>
+          <input
+            className={s.searchInput}
+            value={value}
+            placeholder="Searching"
+            onChange={(e) => changeTextInSearch(e.target.value)}
+          ></input>
+        </div>
+
         <div className={s.buttons}>
           <button onClick={back}>Back</button>
         </div>
