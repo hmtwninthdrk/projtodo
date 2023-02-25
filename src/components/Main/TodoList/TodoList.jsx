@@ -264,6 +264,7 @@ const TodoList = (props) => {
       props.setTodo(arr);
     }
   }
+  let doneItems = props.todo.filter((item) => !item.status);
 
   const handleKeyUp = (e, itemId) => {
     if (e.key === "Enter") saveChanges(itemId);
@@ -736,6 +737,7 @@ const TodoList = (props) => {
 
         <div className={s.footerList}>
           <p>{props.todo.length} items left</p>
+          <p>{doneItems.length} items done</p>
           <div className={s.footerListButtons}>
             <button onClick={goSearch}>Search</button>
             <select
