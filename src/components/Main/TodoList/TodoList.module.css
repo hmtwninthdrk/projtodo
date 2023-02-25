@@ -181,5 +181,16 @@ ul li {
   .todoListContent {
     width: 90%;
   }
-  
+  .footerListButtons {
+    
+    gap: 5px;
+  }
+
+  .footerList p {
+   
+    font-size: 12px;
+    line-height: 12px;
+    /* identical to box height */
+    ;
+  }
 }
